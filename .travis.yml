@@ -16,4 +16,4 @@ deploy:
   skip-cleanup: true
   github-token: $GITHUB_TOKEN
   local-dir: jest-demo
-  repo: JasonXDDD/CICD-Demo
+  repo: qmsiteandy/TravisCI_firstTry
