@@ -1,0 +1,15 @@
+{
+  "scripts": {
+    "test": "jest --coverage",
+    "testwatch": "jest --watchAll"
+  },
+  "devDependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.12.1",
+    "jest": "^26.4.2"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ]
+  }
+}
