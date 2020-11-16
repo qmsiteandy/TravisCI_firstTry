@@ -1,0 +1,19 @@
+# .travis.yml
+language: node_js
+node_js:
+  - 10
+install:
+  - echo [ 編譯 Build ]
+  - cd ./jest-demo
+  - npm install
+script:
+  - echo [ 測試 Test ] 
+  - npm run test
+  - echo [ 部署 Deploy ]
+
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN
+  local-dir: jest-demo
+  repo: JasonXDDD/CICD-Demo

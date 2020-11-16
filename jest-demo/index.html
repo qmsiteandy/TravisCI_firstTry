@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" class="w-100 h-100">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
+
+</head>
+<body class="w-100 h-100">
+
+  <div class="h-100 d-flex align-items-center justify-content-center">
+    <div class="chatbox">
+      <h2 class="font-weight-bold">聊天室HELLO</h2>
+      <div 
+        id="chat-content" 
+        class="chat-content px-3 d-flex align-items-start flex-column bg-dark" 
+        style="overflow: auto">
+      </div>
+      <div class="d-flex align-items-start flex-wrap">
+        <button class="btn btn-sm btn-outline-primary" onclick="sayHi()">
+          你是誰？
+        </button>
+        <button class="btn btn-sm btn-outline-primary" onclick="sayBye()">
+          再見
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://requirejs.org/docs/release/2.3.6/minified/require.js"></script>
+  <script src="./js/main.js" type="module"></script>
+  <script>
+    function response (text) {
+      setTimeout(() => {
+        let content = $('#chat-content')[0]
+        content.innerHTML += `
+        <p class="bg-success rounded-lg shadow p-2">${text}</p>
+        `
+        content.scrollTop = content.scrollHeight
+      }, 1500)
+    }
+
+    function ask (text) {
+      let content = $('#chat-content')[0]
+      content.innerHTML += `
+      <p class="bg-white align-self-end rounded-lg shadow p-2">${text}</p>
+      `
+      content.scrollTop = content.scrollHeight
+    }
+
+    function sayHi () {
+      let a = window.student.sayHi('王小明')
+      ask('你是誰？')
+      response(a)
+    }
+
+    function sayBye () {
+      let a = window.student.sayBye('王小明')
+      ask('再見')
+      response(a)
+    }
+  </script>
+  <style>
+    .chat-content {
+      height: 300px; 
+      width: 500px; 
+    }
+
+    @media all and (max-width: 500px) {
+      .chat-content {
+        height: calc(100vh - 5rem); 
+        width: 100vw; 
+      }  
+    }
+  </style>
+</body>
+</html>
